@@ -1,20 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ApplicationRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-
 import { AppComponent } from './app.component';
 
+import { AgmCoreModule } from 'angular2-google-maps/core';
+import { PolygonComponent } from './polygon/polygon.component';
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
-    HttpModule
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAunL58k9yiEWgJAElfqvku1sMrklQYZ50'
+    })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  declarations: [ AppComponent, PolygonComponent ],
+  bootstrap: [ PolygonComponent ]
 })
-export class AppModule { }
+export class AppModule {
+}
